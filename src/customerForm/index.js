@@ -8,9 +8,11 @@ const CustomerForm = () => {
         city:'',
         gender:''
     })
+    const [, forceUpdate] = useState();
     // Load data from local storage on component mount
-  useEffect(() => {
     const savedData = JSON.parse(localStorage.getItem('customerData'));
+  useEffect(() => {
+    
     if (savedData) {
       setFormData(savedData);
     }
@@ -23,6 +25,7 @@ const CustomerForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     saveData();
+    forceUpdate({});
   };
   // Handle input changes
   const handleChange = (e) => {
@@ -93,7 +96,7 @@ const CustomerForm = () => {
         </div>
         </div>
         <br/>
-        <button className="customer-form-button" type="submit">
+        <button className="customer-form-button" type="submit" >
           Save
         </button>
         </form>
@@ -104,24 +107,20 @@ const CustomerForm = () => {
         <div>
         <div className='display-main'>
             <p className='display-label no-margin'>Name:</p>
-            <p className='no-margin'>{formData.name}</p>
+            <p className='no-margin'>{savedData.name}</p>
         </div>
         <div className='display-main '>
             <p className='display-label no-margin' >EmployeeId:</p>
-            <p className='no-margin'>{formData.employeeId}</p>
+            <p className='no-margin'>{savedData.employeeId}</p>
         </div>
         <div className='display-main'>
             <p className='display-label no-margin' >City:</p>
-            <p className='no-margin'>{formData.city}</p>
+            <p className='no-margin'>{savedData.city}</p>
         </div>
         <div className='display-main'>
             <p className='display-label no-margin' >Gender:</p>
-            <p className='no-margin'>{formData.gender}</p>
+            <p className='no-margin'>{savedData.gender}</p>
         </div>
-        {/* <p><b>Name:</b> {formData.name}</p>
-        <p><b>Employee ID:</b> {formData.employeeId}</p>
-        <p><b>City:</b> {formData.city}</p>
-        <p><b>Gender:</b> {formData.gender}</p> */}
         </div>
         </div>  
         </div>
