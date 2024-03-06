@@ -8,7 +8,7 @@ html, body {
 }
 
 .full-screen-container {
-    background-image: url("C:\Users\Preethi\MantraTask\customer-information\src\background_image.jpg");
+    background-image: url("../customerForm/background_image.jpg");
     height: 100vh;
     width: 100vw;
     background-size: cover;
